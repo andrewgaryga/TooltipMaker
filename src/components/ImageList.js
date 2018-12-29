@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import TooltipIcon from "./TooltipIcon";
 
 export default class ImageList extends Component {
   constructor(props) {
@@ -19,21 +20,18 @@ export default class ImageList extends Component {
   }  
   render() {
     return (
-      <div className="container">
+      <div className="container container-flex">
         {this.state.ImageList
           ?  this.state.ImageList.map( image => {
-            const tooltipStyle = {
-              left: image.tooltipX + 'px',
-              top: image.tooltipY + 'px'
-            };
             return (
             <figure key={image.name}>
-              <img src={image.src} width="500" alt="preview..." />
-              <div style={tooltipStyle} className="tooltip">+</div>
+              <img src={image.src} width="500" alt={image.name} />
+              <TooltipIcon left={image.tooltipX} top={image.tooltipY} message={image.tooltipMessage} />
+              <figcaption>{image.name}</figcaption>
             </figure>
             )
           })
-          : 'loading...'
+          : <h2>Your gallery is empty</h2>
         }    
       </div>
     )

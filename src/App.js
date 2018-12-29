@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import LocalStorageSaver from "./components/LocalStorageSaver";
+import Navbar from "./components/Navbar";
 import ImageList from "./components/ImageList";
+import Footer from "./components/Footer";
+// Font Awesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHandPointUp, faCamera } from '@fortawesome/free-solid-svg-icons';
+library.add(faHandPointUp, faCamera);
 
 class App extends Component {
   constructor(props) {
@@ -22,26 +28,17 @@ class App extends Component {
       case 'ImageList':
         return (
           <div>
-            <nav id="single-line-menu" className="single-nav menu" role="navigation">
-              <ul>
-                  <li><h3>TooltipMaker</h3></li>
-                  <li><button onClick={() => this.toggleRender('LocalStorageSaver')}>Add New Image</button></li>
-              </ul>
-            </nav>
+            <Navbar toggleRender={this.toggleRender} buttonLink={'LocalStorageSaver'} buttonText={'Upload New Photo'} />
             <ImageList />
-            <button onClick={() => this.toggleRender('LocalStorageSaver')}>Add New Image</button>
+            <footer></footer>
           </div>
         )
       case 'LocalStorageSaver':
       return (
         <div>
-          <nav id="single-line-menu" className="single-nav menu" role="navigation">
-            <ul>
-                <li><h3>TooltipMaker</h3></li>
-                <li><button onClick={() => this.toggleRender('ImageList')}>Images List</button></li>
-            </ul>
-          </nav>
+          <Navbar toggleRender={this.toggleRender} buttonLink={'ImageList'} buttonText={'Photo Album'} />
           <LocalStorageSaver />
+          <Footer />
         </div>
       )
       default:
