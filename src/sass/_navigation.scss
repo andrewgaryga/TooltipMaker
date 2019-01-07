@@ -1,0 +1,59 @@
+#single-line-menu {
+  ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      color: white;
+      list-style-type: none;
+      padding: 0 0 1rem 0;
+      margin: 0;
+      background: $main-color;
+
+      @media only screen and (min-width: 320px) {
+        padding: 0;
+        justify-content: space-between;
+      }
+  }
+
+  li {
+    align-self: center;
+    padding: .5rem;
+    margin-bottom: .5rem;
+
+    
+      padding: 0;
+      margin-bottom: 0;
+      flex: 1 0 auto;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    
+
+    .brand-logo {
+      border: 0;
+      margin-right: 0.4rem;
+    }
+
+    .brand {
+      color: white;
+
+      &:active {
+        color: white;
+      }
+    }
+
+    button, .button {
+      font-weight: bold;
+      border: 2px solid white;
+      border-radius: 3px;
+      background-color: transparent;
+      color: white;
+
+      &:hover {
+        background: #404040;
+      }
+    }
+  }
+}

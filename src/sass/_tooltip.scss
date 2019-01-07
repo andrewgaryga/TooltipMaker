@@ -1,0 +1,89 @@
+.tooltip-icon {
+  position: absolute;
+  color: white;
+  background-color: black;
+  font-size: 1.5rem;
+  border-radius: 100%;
+  border: 0.125rem;
+
+  &:hover {
+    background-color: black;
+  }
+}
+
+/* ---------------------
+  Modified tooltip code from here: https://webdesign.tutsplus.com/tutorials/css-tooltip-magic--cms-28082
+*/
+[tooltip]::before,
+[tooltip]::after {
+  left: 50%;
+  transform: translate(-50%, -.5em);
+  text-transform: none; 
+  font-size: .9rem;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  display: none;
+  opacity: 0;
+}
+[tooltip]::before {
+  content: '';
+  border: 5px solid transparent;
+  bottom: 100%;
+  border-bottom-width: 0;
+  border-top-color: #333;
+  z-index: 1001;
+}
+[tooltip]::after {
+  content: attr(tooltip); 
+  text-align: center;
+  min-width: 3rem;
+  max-width: 21rem;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1ch 1.5ch;
+  border-radius: .3ch;
+  box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
+  background: #333;
+  color: #fff;
+  bottom: calc(100% + 5px);
+  z-index: 1000; 
+}
+
+/* Make the tooltips respond to hover */
+[tooltip]:hover::before,
+[tooltip]:hover::after {
+  display: block;
+}
+
+/* don't show empty tooltips */
+[tooltip='']::before,
+[tooltip='']::after {
+  display: none !important;
+}
+
+/* KEYFRAMES */
+@keyframes tooltips-vert {
+  to {
+    opacity: .9;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes tooltips-horz {
+  to {
+    opacity: .9;
+    transform: translate(0, -50%);
+  }
+}
+
+/* FX All The Things */ 
+[tooltip]:hover::before,
+[tooltip]:hover::after {
+  animation: tooltips-vert 300ms ease-out forwards;
+}
+
+/* -------------- */

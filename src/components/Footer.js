@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div>
+    <React.Fragment>
       <footer className="footer">
-        <a href="https://github.com/andrewgaryga/">github.com/andrewgaryga</a>
+        <a href="https://github.com/andrewgaryga/" className="link-normalize">github.com/andrewgaryga</a>
       </footer>
-    </div>
+    </React.Fragment>
   )
 }

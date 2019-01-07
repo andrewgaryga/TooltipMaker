@@ -1,0 +1,46 @@
+img {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  border: 1px solid #000;
+}
+
+figure {
+  position: relative;
+  display: inline-block;
+  margin: 1rem;
+  top: 0;
+
+  &.image-preview {
+    margin: 0;
+  }
+}
+
+figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-weight: bold;
+
+  a {
+    color:black;
+    border-bottom: 1px solid black;
+  }
+}
+
+.image-controls__block {
+  margin: 1rem auto 1.4rem auto;
+
+  input {
+    border-color: transparent;
+    border-bottom-color: $main-color;
+  }
+}
+
+.image-controls__footer {
+  margin: .5rem 0 .5rem 0;
+
+  .attention {
+    cursor: pointer;
+  }
+}

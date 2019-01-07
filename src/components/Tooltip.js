@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function TooltipIcon(props) {
+export default function Tooltip(props) {
   
   let tooltipStyle = {
       left: props.left? props.left + 'px' : '50%',

@@ -1,0 +1,25 @@
+.image-input {
+  color: transparent;
+
+  &:before {
+    content: 'Upload your photo';
+    color: $main-color;
+    display: inline-block;
+    text-align: center;
+    border: 2px solid $main-color;
+    border-radius: 3px;
+    padding: 0.625rem 0.9375rem;
+    width: calc(100% - 2.1rem);
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  &:active{
+    outline: 0;
+  }
+}
+
+.image-input::-webkit-file-upload-button {
+  content: '';
+  visibility: hidden;
+}
