@@ -17,6 +17,12 @@ export default class PhotoSubmit extends Component {
       tooltipY: 0
     };
   }
+
+  calculatePosition = (position) => {
+    return window.innerWidth <= 530 
+    ? position * 2 - 24
+    : position - 24;
+  }
   
   createStorageItem = (name, src, tooltipX, tooltipY, tooltipMessage) => {
     const key = uuidv4();
@@ -35,8 +41,14 @@ export default class PhotoSubmit extends Component {
   };
 
   getCoordsClick = e => {
-    let x = e.nativeEvent.offsetX - 24;
-    let y = e.nativeEvent.offsetY - 24;
+    let z = this.calculatePosition(e.nativeEvent.offsetX);
+    let x = window.innerWidth <= 530 
+      ? e.nativeEvent.offsetX * 2 - 24
+      : e.nativeEvent.offsetX - 24;
+    let y = window.innerWidth <= 530 
+      ? e.nativeEvent.offsetY * 2 - 24
+      : e.nativeEvent.offsetY - 24;
+    console.log(x, y)
     this.setState({
       tooltipX: x,
       tooltipY: y
